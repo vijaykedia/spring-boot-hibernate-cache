@@ -1,0 +1,4 @@
+hazelcast:
+  import:
+    - classpath:hazelcast-default.yaml
+  instance-name: "SpringCreatedMember"

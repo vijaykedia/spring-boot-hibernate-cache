@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        generate_statistics: true
+        cache:
+          use_minimal_puts: true
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: com.hazelcast.hibernate.HazelcastCacheRegionFactory
+          hazelcast:
+            shutdown_on_session_factory_close: false
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
+  cache:
+    type: hazelcast
+
+logging:
+  level:
+    org.hibernate.cache: DEBUG
