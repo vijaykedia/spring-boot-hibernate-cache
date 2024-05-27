@@ -31,6 +31,12 @@ configurations {
     }
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.infinispan:infinispan-bom:15.0.4.Final")
+    }
+}
+
 dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -40,10 +46,9 @@ dependencies {
     // swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 
-    // Hazelcast
-    implementation("com.hazelcast:hazelcast:5.4.0")
-    implementation("com.hazelcast:hazelcast-hibernate53:5.1.0")
-    implementation("com.hazelcast:hazelcast-spring:5.4.0")
+    // infinispan caching
+    implementation("org.infinispan:infinispan-spring-boot3-starter-embedded")
+    implementation("org.infinispan:infinispan-hibernate-cache-v62")
 
     // lombok
     compileOnly("org.projectlombok:lombok")
